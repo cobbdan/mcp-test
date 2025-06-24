@@ -21,6 +21,28 @@ Model Context Protocol (MCP) is a standardized protocol designed to facilitate c
 - Handles state management for ongoing dialogues
 - Enables context-aware tool selection and execution
 
+## Built-in Tools
+
+### Lorem Ipsum Generator
+The server includes a built-in lorem ipsum text generator tool that can be used to generate placeholder text.
+
+**Tool Name:** `loremIpsum`
+
+**Parameters:**
+- `paragraphs` (number, optional): Number of paragraphs to generate (default: 1)
+- `minSentences` (number, optional): Minimum sentences per paragraph (default: 3)
+- `maxSentences` (number, optional): Maximum sentences per paragraph (default: 7)
+
+**Example Usage:**
+```json
+POST /execute/loremIpsum
+{
+  "paragraphs": 2,
+  "minSentences": 3,
+  "maxSentences": 5
+}
+```
+
 ## How It Works
 
 1. **Tool Registration**: Tools register their capabilities with the MCP server, including:
@@ -86,6 +108,19 @@ To implement an MCP server:
 5. Set up monitoring and logging
 6. Test thoroughly
 7. Deploy and maintain
+
+## Running the Server
+
+```bash
+npm install
+npm start
+```
+
+## Testing
+
+```bash
+npm test
+```
 
 ## Resources
 
