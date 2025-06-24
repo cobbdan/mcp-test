@@ -87,6 +87,39 @@ To implement an MCP server:
 6. Test thoroughly
 7. Deploy and maintain
 
+## Available Tools
+
+### Lorem Ipsum Tool
+
+The server comes with a pre-registered lorem ipsum tool that generates placeholder text.
+
+**Tool Name:** `loremIpsum`
+
+**Parameters:**
+- `paragraphs` (optional): Number of paragraphs to generate (default: 1)
+- `maxParagraphs` (optional): Maximum number of paragraphs allowed (default: 5)
+
+**Example Usage:**
+```json
+POST /execute/loremIpsum
+Content-Type: application/json
+
+{
+  "paragraphs": 3
+}
+```
+
+**Example Response:**
+```json
+{
+  "tool": "loremIpsum",
+  "result": "Lorem ipsum dolor sit amet...",
+  "paragraphs": 3,
+  "timestamp": "2023-05-15T14:30:00.000Z",
+  "status": "success"
+}
+```
+
 ## Resources
 
 - [MCP Specification](https://example.com/mcp-spec)
