@@ -21,6 +21,52 @@ Model Context Protocol (MCP) is a standardized protocol designed to facilitate c
 - Handles state management for ongoing dialogues
 - Enables context-aware tool selection and execution
 
+## Available Tools
+
+### Lorem Ipsum Generator
+
+Generates Lorem Ipsum placeholder text with optional text-to-speech capability.
+
+#### API Endpoint
+
+```
+POST /execute/lorem-ipsum
+```
+
+#### Parameters
+
+| Parameter | Type    | Description                                        | Required | Default     |
+|-----------|---------|---------------------------------------------------|----------|-------------|
+| units     | string  | Type of units to generate (paragraphs, sentences, words) | No       | paragraphs  |
+| count     | number  | Number of units to generate (1-100)               | No       | 1           |
+| tts       | boolean | Whether to generate text-to-speech audio          | No       | false       |
+
+#### Response
+
+```json
+{
+  "tool": "lorem-ipsum",
+  "parameters": {
+    "units": "paragraphs",
+    "count": 2,
+    "tts": true
+  },
+  "timestamp": "2023-06-15T12:34:56.789Z",
+  "result": {
+    "text": "Lorem ipsum dolor sit amet...",
+    "audioUrl": "/uploads/12345678-1234-1234-1234-123456789abc.mp3"
+  }
+}
+```
+
+#### Example Usage
+
+```bash
+curl -X POST http://localhost:3000/execute/lorem-ipsum \
+  -H "Content-Type: application/json" \
+  -d '{"units": "paragraphs", "count": 2, "tts": true}'
+```
+
 ## How It Works
 
 1. **Tool Registration**: Tools register their capabilities with the MCP server, including:
